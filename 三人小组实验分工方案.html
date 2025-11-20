@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三人小组实验分工方案</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #34495e;
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 4px solid #3498db;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border-left: 4px solid #3498db;
+        }
+
+        .intro p {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        table th {
+            background: #34495e;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .member-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .member-card h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .member-card.member-a {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .member-card.member-b {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .member-card.member-c {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .task-list {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .task-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .task-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .task-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .deliverable {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+
+        .deliverable ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .deliverable li {
+            padding: 6px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .deliverable li:before {
+            content: "📄";
+            position: absolute;
+            left: 0;
+        }
+
+        .timeline {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+
+        .milestone {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .milestone h4 {
+            color: #17a2b8;
+            margin-top: 0;
+        }
+
+        .workload {
+            display: inline-block;
+            background: #e3f2fd;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #1976d2;
+            margin: 10px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .badge.primary {
+            background: #3498db;
+        }
+
+        .badge.success {
+            background: #27ae60;
+        }
+
+        .badge.warning {
+            background: #f39c12;
+        }
+
+        .badge.danger {
+            background: #e74c3c;
+        }
+
+        .collaboration {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #2196f3;
+        }
+
+        .tips {
+            background: #fff9e6;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .tips h4 {
+            color: #ff9800;
+            margin-top: 0;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .summary-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .summary-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .summary-box li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .summary-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .member-card {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            table {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>👥 三人小组实验分工方案</h1>
+        
+        <div class="intro">
+            <p><strong>项目名称：</strong>智能客服工单管理系统</p>
+            <p><strong>实验周期：</strong>8周（4个实验，每个实验2周）</p>
+            <p><strong>分工原则：</strong>主责明确、协作充分、工作量均衡、技能匹配</p>
+        </div>
+
+        <h2>📊 快速分工总览</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>成员</th>
+                    <th>主责实验</th>
+                    <th>主要任务</th>
+                    <th>协作任务</th>
+                    <th>工作量</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>成员A</strong></td>
+                    <td>实验一<br>需求规格说明书</td>
+                    <td>需求分析、用例建模、数据建模、用户故事地图</td>
+                    <td>实验三：前端开发<br>（登录、提交工单、我的工单等页面）</td>
+                    <td><span class="workload">50-60小时</span></td>
+                </tr>
+                <tr>
+                    <td><strong>成员B</strong></td>
+                    <td>实验二<br>设计规格说明书</td>
+                    <td>系统架构设计、详细设计、UML设计图、数据库设计</td>
+                    <td>实验三：后端开发<br>（认证、工单、评论、文件上传）</td>
+                    <td><span class="workload">55-65小时</span></td>
+                </tr>
+                <tr>
+                    <td><strong>成员C</strong></td>
+                    <td>实验三：AI集成<br>实验四：测试报告</td>
+                    <td>AI服务集成、高级功能开发、系统集成部署、测试用例与执行</td>
+                    <td>-</td>
+                    <td><span class="workload">55-65小时</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>👨‍💻 成员A：需求分析师 + 前端开发</h2>
+        <div class="member-card member-a">
+            <h3>主要职责：实验一（需求规格说明书）</h3>
+            <div class="workload">工作量：50-60小时</div>
+        </div>
+
+        <h3>📋 具体任务</h3>
+        <div class="task-list">
+            <h4>1. 需求调研与分析</h4>
+            <ul>
+                <li>编写项目背景与目标</li>
+                <li>分析目标用户和系统目标</li>
+                <li>编写非功能需求</li>
+            </ul>
+
+            <h4>2. 用例建模</h4>
+            <ul>
+                <li>识别所有用例（20个用例）</li>
+                <li>绘制用例图（PlantUML）</li>
+                <li>编写用例详细描述</li>
+                <li>绘制活动图</li>
+            </ul>
+
+            <h4>3. 数据建模</h4>
+            <ul>
+                <li>识别领域实体（User、Ticket、Comment等）</li>
+                <li>绘制领域模型图（类图）</li>
+                <li>定义实体关系</li>
+            </ul>
+
+            <h4>4. 用户故事地图</h4>
+            <ul>
+                <li>创建用户故事地图（HTML版本）</li>
+                <li>按Sprint和优先级组织</li>
+                <li>定义用户旅程</li>
+            </ul>
+        </div>
+
+        <div class="deliverable">
+            <h4>📄 交付物清单</h4>
+            <ul>
+                <li>docs/实验报告-第一部分-需求规格说明书.md</li>
+                <li>docs/uml/usecase.puml（用例图）</li>
+                <li>docs/uml/domain.puml（领域模型）</li>
+                <li>用户故事地图.html</li>
+            </ul>
+        </div>
+
+        <h3>🤝 协作职责：实验三（前端开发）</h3>
+        <div class="task-list">
+            <ul>
+                <li>登录页面（Login.vue）</li>
+                <li>提交工单页面（SubmitTicket.vue）</li>
+                <li>我的工单页面（MyTickets.vue）</li>
+                <li>工单详情页面（TicketDetail.vue）</li>
+                <li>路由配置与权限控制</li>
+                <li>UI样式优化</li>
+            </ul>
+        </div>
+
+        <h2>👨‍💻 成员B：架构设计师 + 后端开发</h2>
+        <div class="member-card member-b">
+            <h3>主要职责：实验二（设计规格说明书）</h3>
+            <div class="workload">工作量：55-65小时</div>
+        </div>
+
+        <h3>📋 具体任务</h3>
+        <div class="task-list">
+            <h4>1. 系统架构设计</h4>
+            <ul>
+                <li>架构选型与决策</li>
+                <li>绘制系统架构图</li>
+                <li>定义分层架构</li>
+                <li>设计模式应用（策略模式、观察者模式等）</li>
+            </ul>
+
+            <h4>2. 详细设计</h4>
+            <ul>
+                <li>模块设计</li>
+                <li>接口设计（RESTful API）</li>
+                <li>数据库设计（ER图）</li>
+                <li>安全设计（JWT、RBAC）</li>
+            </ul>
+
+            <h4>3. UML设计图</h4>
+            <ul>
+                <li>包图（packages.puml）</li>
+                <li>时序图（sequence-create.puml、sequence-status.puml）</li>
+                <li>部署图（deployment.puml）</li>
+            </ul>
+
+            <h4>4. 技术选型说明</h4>
+            <ul>
+                <li>后端技术栈选型理由</li>
+                <li>前端技术栈选型理由</li>
+                <li>AI服务选型理由</li>
+            </ul>
+        </div>
+
+        <div class="deliverable">
+            <h4>📄 交付物清单</h4>
+            <ul>
+                <li>docs/实验报告-第二部分-设计规格说明书.md</li>
+                <li>docs/uml/packages.puml</li>
+                <li>docs/uml/sequence-create.puml</li>
+                <li>docs/uml/deployment.puml</li>
+                <li>API文档</li>
+            </ul>
+        </div>
+
+        <h3>🤝 协作职责：实验三（后端开发）</h3>
+        <div class="task-list">
+            <ul>
+                <li>用户认证模块（AuthController、AuthService）</li>
+                <li>工单管理模块（TicketController、TicketService）</li>
+                <li>评论模块（CommentController）</li>
+                <li>文件上传模块（FileController）</li>
+                <li>WebSocket通知（NotificationService）</li>
+                <li>数据库实体设计</li>
+            </ul>
+        </div>
+
+        <h2>👨‍💻 成员C：AI集成专家 + 测试工程师</h2>
+        <div class="member-card member-c">
+            <h3>主要职责：实验三（AI集成）+ 实验四（测试报告）</h3>
+            <div class="workload">工作量：55-65小时</div>
+        </div>
+
+        <h3>📋 实验三任务（AI集成 + 高级功能）</h3>
+        <div class="task-list">
+            <h4>1. AI服务集成</h4>
+            <ul>
+                <li>AI服务接口设计（AiService接口）</li>
+                <li>豆包AI实现（DoubaoAiService）</li>
+                <li>AI自动分流功能（核心功能）</li>
+                <li>AI回复建议、情感分析等功能</li>
+            </ul>
+
+            <h4>2. 高级功能开发</h4>
+            <ul>
+                <li>SLA自动化管理（SlaService）</li>
+                <li>满意度评价（RatingController）</li>
+                <li>数据看板（Dashboard.vue）</li>
+                <li>操作日志（AuditLog.vue）</li>
+            </ul>
+
+            <h4>3. 系统集成与部署</h4>
+            <ul>
+                <li>前后端联调</li>
+                <li>Docker配置（docker-compose.yml）</li>
+                <li>部署文档编写</li>
+                <li>环境配置说明</li>
+            </ul>
+        </div>
+
+        <h3>📋 实验四任务（测试报告）</h3>
+        <div class="task-list">
+            <h4>1. 测试计划制定</h4>
+            <ul>
+                <li>测试范围确定</li>
+                <li>测试方法选择</li>
+                <li>测试环境搭建</li>
+            </ul>
+
+            <h4>2. 测试用例设计</h4>
+            <ul>
+                <li>功能测试用例（20+用例）</li>
+                <li>AI功能测试用例</li>
+                <li>性能测试用例</li>
+                <li>安全测试用例</li>
+            </ul>
+
+            <h4>3. 测试执行与报告</h4>
+            <ul>
+                <li>功能测试执行</li>
+                <li>AI功能测试（重点）</li>
+                <li>WebSocket测试</li>
+                <li>测试结果分析与报告编写</li>
+            </ul>
+        </div>
+
+        <div class="deliverable">
+            <h4>📄 交付物清单</h4>
+            <ul>
+                <li>AI相关代码（backend/src/main/java/com/example/servicedesk/ai/）</li>
+                <li>高级功能代码</li>
+                <li>docker-compose.yml</li>
+                <li>README.md、STARTUP.md</li>
+                <li>docs/实验报告-第三部分-系统原型构建与实现.md</li>
+                <li>docs/实验报告-第四部分-测试报告.md</li>
+                <li>测试用例表、测试数据、缺陷记录</li>
+            </ul>
+        </div>
+
+        <h2>⏰ 时间安排（8周）</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>周次</th>
+                    <th>成员A</th>
+                    <th>成员B</th>
+                    <th>成员C</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>第1-2周</strong></td>
+                    <td>实验一：需求分析</td>
+                    <td>参与需求评审</td>
+                    <td>参与需求评审</td>
+                </tr>
+                <tr>
+                    <td><strong>第3-4周</strong></td>
+                    <td>参与设计评审</td>
+                    <td>实验二：架构设计</td>
+                    <td>参与设计评审</td>
+                </tr>
+                <tr>
+                    <td><strong>第5-6周</strong></td>
+                    <td>前端开发</td>
+                    <td>后端开发</td>
+                    <td>AI集成+高级功能</td>
+                </tr>
+                <tr>
+                    <td><strong>第7-8周</strong></td>
+                    <td>前端Bug修复</td>
+                    <td>后端Bug修复</td>
+                    <td>测试+测试报告</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>🎯 关键里程碑</h2>
+        <div class="milestone">
+            <h4>里程碑1：需求文档完成（第2周末）</h4>
+            <p><strong>负责人：</strong>成员A</p>
+            <p><strong>交付物：</strong>需求规格说明书初稿</p>
+            <p><strong>评审：</strong>全体成员参与评审</p>
+        </div>
+
+        <div class="milestone">
+            <h4>里程碑2：设计文档完成（第4周末）</h4>
+            <p><strong>负责人：</strong>成员B</p>
+            <p><strong>交付物：</strong>设计规格说明书初稿</p>
+            <p><strong>评审：</strong>全体成员参与评审</p>
+        </div>
+
+        <div class="milestone">
+            <h4>里程碑3：核心功能完成（第6周末）</h4>
+            <p><strong>负责人：</strong>全体成员</p>
+            <p><strong>交付物：</strong>可运行的系统原型</p>
+            <p><strong>演示：</strong>核心功能演示</p>
+        </div>
+
+        <div class="milestone">
+            <h4>里程碑4：测试完成（第8周末）</h4>
+            <p><strong>负责人：</strong>成员C</p>
+            <p><strong>交付物：</strong>测试报告 + 完整系统</p>
+            <p><strong>验收：</strong>最终验收</p>
+        </div>
+
+        <h2>🔄 协作机制</h2>
+        <div class="collaboration">
+            <h4>1. 代码管理</h4>
+            <ul>
+                <li><strong>Git工作流：</strong>使用Git分支管理（main、dev、feature分支）</li>
+                <li><strong>提交规范：</strong>使用有意义的commit message（feat、docs、fix等）</li>
+                <li><strong>代码审查：</strong>重要功能提交PR，其他成员审查</li>
+            </ul>
+
+            <h4>2. 沟通机制</h4>
+            <ul>
+                <li><strong>每日站会：</strong>每天10分钟，同步进度和问题</li>
+                <li><strong>周会：</strong>每周1小时，评审进度和计划</li>
+                <li><strong>文档共享：</strong>使用Git或在线文档协作</li>
+            </ul>
+
+            <h4>3. 测试协作</h4>
+            <ul>
+                <li><strong>单元测试：</strong>开发人员编写单元测试</li>
+                <li><strong>集成测试：</strong>成员C主导，其他成员配合</li>
+                <li><strong>Bug修复：</strong>发现Bug后，相关开发人员及时修复</li>
+            </ul>
+        </div>
+
+        <h2>💡 技能要求匹配</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>成员</th>
+                    <th>技能要求</th>
+                    <th>适合人群</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>成员A</strong></td>
+                    <td>需求分析能力、UML建模能力、Vue 3前端开发、文档编写能力</td>
+                    <td>前端开发经验丰富，文档编写能力强</td>
+                </tr>
+                <tr>
+                    <td><strong>成员B</strong></td>
+                    <td>系统架构设计能力、Spring Boot后端开发、数据库设计能力、UML设计能力</td>
+                    <td>后端开发经验丰富，架构思维强</td>
+                </tr>
+                <tr>
+                    <td><strong>成员C</strong></td>
+                    <td>AI服务集成经验、HTTP API调用、测试能力、系统集成能力、Docker部署经验</td>
+                    <td>对AI感兴趣，测试经验丰富，全栈能力</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>⚠️ 注意事项</h2>
+        <div class="tips">
+            <h4>1. 时间管理</h4>
+            <ul>
+                <li>每个实验预留1-2周缓冲时间</li>
+                <li>关键节点提前完成，避免最后赶工</li>
+                <li>每周同步进度，及时调整计划</li>
+            </ul>
+
+            <h4>2. 质量保证</h4>
+            <ul>
+                <li>代码提交前自测</li>
+                <li>文档编写后互审</li>
+                <li>重要功能需要演示验证</li>
+            </ul>
+
+            <h4>3. 风险控制</h4>
+            <ul>
+                <li>AI API调用可能失败，需要容错机制</li>
+                <li>前后端联调可能遇到问题，预留时间</li>
+                <li>测试可能发现较多Bug，预留修复时间</li>
+            </ul>
+
+            <h4>4. 版本管理</h4>
+            <ul>
+                <li>重要节点打Tag</li>
+                <li>实验一完成：v1.0</li>
+                <li>实验二完成：v2.0</li>
+                <li>实验三完成：v3.0</li>
+                <li>实验四完成：v4.0（最终版本）</li>
+            </ul>
+        </div>
+
+        <div class="summary-box">
+            <h3>📊 分工方案总结</h3>
+            <ul>
+                <li><strong>主责明确：</strong>每人主要负责一个实验</li>
+                <li><strong>协作充分：</strong>关键环节有协作</li>
+                <li><strong>工作量均衡：</strong>每人约50-65小时</li>
+                <li><strong>技能匹配：</strong>根据能力分配任务</li>
+                <li><strong>风险可控：</strong>有缓冲时间和协作机制</li>
+            </ul>
+            <p style="margin-top: 20px; font-size: 16px;">
+                <strong>建议：</strong>根据团队成员的实际技能和经验，可以微调分工。最重要的是保持沟通和协作！
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 6px;">
+            <p style="font-size: 18px; color: #666;">
+                <strong>祝你们实验顺利！</strong> 🎊
+            </p>
+            <p style="margin-top: 10px; color: #999; font-size: 14px;">
+                生成时间：2025年1月 | 项目：智能客服工单管理系统
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
