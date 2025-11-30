@@ -4,5 +4,7 @@
 3.RAG知识库：https://blog.csdn.net/a2875254060/article/details/142468037  
 4.REST API：https://zhuanlan.zhihu.com/p/536437382  
 5.WebSocket：https://cloud.tencent.com/developer/article/1887095  
-6.JWT:https://zhuanlan.zhihu.com/p/1932939645169164990
-7.LangChain4j：https://blog.csdn.net/2301_81940605/article/details/140200824
+6.JWT:https://zhuanlan.zhihu.com/p/1932939645169164990  
+7.LangChain4j：https://blog.csdn.net/2301_81940605/article/details/140200824  
+8.Chroma：https://zhuanlan.zhihu.com/p/665715823  
+
