@@ -8,5 +8,7 @@
 7.LangChain4j：https://blog.csdn.net/2301_81940605/article/details/140200824  
 8.Chroma：https://zhuanlan.zhihu.com/p/665715823  
 9.Spring Data JPA：https://blog.csdn.net/xfx_1994/article/details/104921234  
+                 ：https://zhuanlan.zhihu.com/p/624207419  
+
 
 
