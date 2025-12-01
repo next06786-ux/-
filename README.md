@@ -9,5 +9,7 @@
 8.Chroma：https://zhuanlan.zhihu.com/p/665715823  
 9.Spring Data JPA：https://blog.csdn.net/xfx_1994/article/details/104921234  https://zhuanlan.zhihu.com/p/624207419  
 10.Embedding:https://blog.csdn.net/2401_84495872/article/details/155127626  
-11.Nginx：https://blog.csdn.net/hyfsbxg/article/details/122322125
+11.Nginx：https://blog.csdn.net/hyfsbxg/article/details/122322125  
+12.微服务架构：https://blog.csdn.net/weixin_42998312/article/details/147423771  
+13.
 
